@@ -29,7 +29,7 @@ Selain sistem operasi, kamu juga perlu memperbarui aplikasi bawaan Windows yang 
 
 Dengan melakukan pembaruan, kamu akan mendapatkan peningkatan keamanan dan fitur-fitur terbaru yang tersedia.
 
-### 2. Bersihkan Taskbar dan Start Menu
+## 2. Bersihkan Taskbar dan Start Menu
 
 Saat pertama kali menggunakan Windows 11, kamu mungkin akan melihat banyak ikon yang terpasang di taskbar dan Start menu. Beberapa ikon mungkin berguna, namun sebagian lainnya mungkin tidak diperlukan. Sebaiknya bersihkan dan hapus ikon yang tidak kamu perlukan agar tampilannya lebih rapi.
 Berikut cara memperbarui Windows 11:
