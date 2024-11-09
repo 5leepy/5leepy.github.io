@@ -4,7 +4,6 @@ date: 2024-11-09
 categories: [Tips & Trik,Windows]
 tags: [windows,pc,laptop,setup,optimasi,tips,tutorial] 
 ---
-# 10 Hal Pertama yang Wajib Kamu Lakukan dengan PC Windows 11 Baru
 
 ## 1. Pastikan Windows 11 Kamu Sudah Update!
 
