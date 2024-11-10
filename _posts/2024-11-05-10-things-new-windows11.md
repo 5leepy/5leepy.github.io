@@ -1,6 +1,6 @@
 ---
 title: 10 Hal Pertama yang Wajib Kamu Lakukan dengan PC Windows 11 Baru
-date: 2024-11-09
+date: 2024-11-05
 categories: [Tips & Trik,Windows]
 tags: [windows,pc,laptop,setup,optimasi,tips,tutorial] 
 ---

@@ -1,6 +1,6 @@
 ---
 title: 12 Aplikasi Bawaan Windows yang Aman untuk Dihapus
-date: 2024-11-10
+date: 2024-11-08
 categories: [Tips & Trik, Windows]
 tags: [windows11, uninstall, aplikasi, bloatware, optimasi]
 ---

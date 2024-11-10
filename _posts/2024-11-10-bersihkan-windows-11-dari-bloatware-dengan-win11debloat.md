@@ -12,7 +12,7 @@ Untungnya, ada cara mudah buat ngilangin *bloatware* ini, yaitu pake **Win11Debl
 Di postingan ini, aku bakal jelasin semua yang perlu kamu tahu tentang Win11Debloat, mulai dari cara pake, fitur-fiturnya, sampai tips dan peringatan penting. Siap-siap bersihin Windows 11 kamu dari *bloatware* ya!
 
 
-### Apa Itu Bloatware?
+## Apa Itu Bloatware?
 
 Bloatware itu aplikasi yang udah terinstal di perangkat (laptop, HP, dll) sejak awal, tapi sebenernya nggak kita butuhin. Bayangin aja, kamu beli laptop baru, eh udah penuh aja sama aplikasi yang nggak jelas fungsinya. Itulah bloatware! 
 
@@ -31,7 +31,7 @@ Nah, bloatware ini nggak cuma bikin laptop lemot, tapi juga bisa:
 Makanya, penting banget buat ngilangin bloatware dari Windows 11 kamu. Dan cara termudah buat nglakuinnya ya pake Win11Debloat!
 
 
-### Kenapa Harus Pakai Win11Debloat?
+## Kenapa Harus Pakai Win11Debloat?
 
 Kamu mungkin bertanya-tanya, "Kenapa harus repot-repot pakai Win11Debloat? Emang nggak bisa hapus bloatware secara manual?"
 
@@ -43,14 +43,14 @@ Jawabannya, bisa aja sih. Tapi, coba bayangin:
 
 Nah, dengan Win11Debloat, semua itu jadi lebih mudah! Win11Debloat itu kayak "tukang bersih-bersih" khusus buat Windows 11 kamu. Dia bakal ngebersihin semua *bloatware* yang nggak penting, nonaktifin fitur-fitur yang ganggu, dan optimasiin Windows kamu biar lebih enteng dan ngebut.
 
-### Cara Pakai Win11Debloat
+## Cara Pakai Win11Debloat
 
 Win11Debloat  bisa  dijalankan  dengan  dua  cara:  melalui  perintah  PowerShell  langsung  atau  dengan  men-download  script-nya.
 
 >Pastikan kamu sudah backup data penting sebelum menjalankan Win11Debloat, ya! Meskipun Win11Debloat aman, tapi tetep aja ada baiknya kamu backup data penting dulu sebelum pake.
 {: .prompt-warning }
 
-#### Menggunakan Perintah PowerShell
+### Menggunakan Perintah PowerShell
 
 
 Buat kamu yang suka ngetik perintah dan pengen cara yang lebih "keren", bisa langsung pake PowerShell nih buat jalanin Win11Debloat.
@@ -58,7 +58,7 @@ Buat kamu yang suka ngetik perintah dan pengen cara yang lebih "keren", bisa lan
 >Selain menggunakan perintah PowerShell, kamu juga bisa men-download script Win11Debloat dan menjalankannya secara manual. Kamu bisa menemukan panduan lengkapnya di  [link ini](https://github.com/Raphire/Win11Debloat).
 {: .prompt-info }
 
-##### **Buka PowerShell sebagai administrator**
+#### **Buka PowerShell sebagai administrator**
 
 Pertama-tama, kamu perlu buka PowerShell dengan hak administrator. Caranya gampang:
 
@@ -67,7 +67,7 @@ Pertama-tama, kamu perlu buka PowerShell dengan hak administrator. Caranya gampa
 
 ![Menjalankan PowerShell dari Start Menu](https://5leepy-img.netlify.app/win11debloat/startpowershell.png)
 
-##### **Jalankan perintah PowerShell**
+#### **Jalankan perintah PowerShell**
 
 Setelah PowerShell terbuka, copy dan paste perintah berikut ke PowerShell:
 
@@ -78,7 +78,7 @@ Setelah PowerShell terbuka, copy dan paste perintah berikut ke PowerShell:
 
 ![Script Printah win11debloat](https://5leepy-img.netlify.app/win11debloat/psscript.png)
 
-##### **Pilih mode dan ikuti petunjuk**
+#### **Pilih mode dan ikuti petunjuk**
 
 Tekan `Enter` dan tunggu sampai proses selesai. Nanti bakal muncul pilihan mode.
 
@@ -100,11 +100,11 @@ Win11Debloat punya dua mode utama:
 >Pilih mode yang sesuai dengan kebutuhanmu. Jika ragu, pilih mode Default saja.
 {: .prompt-tip }
 
-### Parameters
+## Parameters
 
 Win11Debloat mendukung berbagai parameter yang bisa kamu gunakan untuk menyesuaikan proses debloating. Berikut beberapa contoh parameter yang bisa kamu gunakan:
 
-#### Contoh penggunaan parameter:
+### Contoh penggunaan parameter:
 
 ```powershell
 & ([scriptblock]::Create((irm "https://win11debloat.raphi.re/"))) -RunDefaults -Silent
@@ -125,7 +125,7 @@ Win11Debloat mendukung berbagai parameter yang bisa kamu gunakan untuk menyesuai
 >Jika kamu ingin mengembalikan perubahan yang dilakukan oleh Win11Debloat, kamu bisa mengikuti panduan di [link ini](https://github.com/Raphire/Win11Debloat/discussions/114).
 {: .prompt-tip }
 
-### Penjelasan Perintah:
+## Penjelasan Perintah:
 
 Buat yang penasaran, nih aku jelasin sedikit tentang perintah PowerShell yang kita pake:
 
