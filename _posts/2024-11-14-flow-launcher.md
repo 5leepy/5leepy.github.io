@@ -1,5 +1,5 @@
 ---
-title: Flow Launcher: Alternatif Start Menu Windows yang Lebih Keren & Cepat!
+title: "Flow Launcher: Alternatif Start Menu Windows yang Lebih Keren & Cepat!"
 date: 2024-11-14
 categories: [Tips & Trik, Windows, Aplikasi Produktivitas]
 tags: [flow launcher, windows, start menu, productivity, plugins, search, everything, aplikasi]     
