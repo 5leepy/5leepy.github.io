@@ -1,7 +1,6 @@
 ---
 title: Mengenal Windows Terminal — Masa Depan CLI di Windows
 description: Windows Terminal adalah terminal modern yang menggantikan CMD dan PowerShell klasik. Pelajari fitur-fitur utamanya dan kenapa ini wajib dicoba oleh pengguna Windows.
-author: nadir
 date: 2025-07-24 22:00:00 +0700
 comments: true
 categories: [Tips & Trik,Windows]
