@@ -4,9 +4,9 @@ title: "Mengenal WSL: Jalankan Linux di Windows Tanpa Dual Boot"
 description: WSL memungkinkan kamu menjalankan Linux langsung di Windows tanpa virtual machine. Pelajari cara install, perbedaan WSL 1 vs WSL 2, serta manfaatnya bagi developer modern.
 date: 2025-07-27 01:00:00 +0700
 comments: true
-categories: [Tips & Trik,Windows]
+categories: [Windows & WSL]
 tags: [wsl, linux, terminal, windows, cli, productivity, developer]
-media_subpath: /windows-guide/wsl-intro/
+media_subpath: /assets/img/posts/windows-guide/wsl-intro/
 image:
   path: wsl-thumbnail.webp
   lqip: data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAAAUBACdASp4AEEAEDj+AAASvwnzKL7+w8K/8nf/OSnQOtZX7ZFtewoOAAD+4tUtqppzGx7MiAdNW+J7Wp54lqcJFHmxEtmDzLkBSV45KLJXk+lJwaQ6w8W79ght9aRleparqtfDv6OGjEKkw9VXfe3dWLVR8G3Rrs3v3uWcMMUeRLhrrv7CfYGX9U0QvM+Nq/uRFOZG9lkamC7xLxGJ6oih5dREKq0UEdUyBhu86d1TolwNY+JD03LLfTjKPV5yILbnlkTqLj8ijFSKRnjvmFPne0XvrG6VlVp+6um23YIBAAAAAAA=

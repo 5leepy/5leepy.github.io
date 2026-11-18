@@ -3,9 +3,9 @@ title: Setelah Install WSL, Apa Selanjutnya?
 description: Panduan singkat dan praktis untuk pengguna baru WSL setelah instalasi. Pelajari struktur direktori, perintah penting, dan cara menyesuaikan lingkungan shell Linux di Windows.
 date: 2025-07-28 01:12:00 +0700
 comments: true
-categories: [Panduan, WSL]
+categories: [Windows & WSL]
 tags: [wsl, ubuntu, windows, terminal, linux, pemula]
-media_subpath: /windows-guide/wsl-guide/
+media_subpath: /assets/img/posts/windows-guide/wsl-guide/
 image:
   path: wsl-guide-thumbnail.webp
   lqip: data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAACQBwCdASp4AEEAP/3+/3+/uzUyJbtpc/A/iU3Fy7adZctv3P92llnh7x4B8iNzw+CEQg3k5k7F3gWrURgDdjIKPH9yRoAA/uPggBsdvt5UjEXVyrJpyFj805ADWW09n1Hi6Zm+G+FlTGf/nAhZuBJEHozHyvs9CfFIy6QTNEsnbfE+pK0/ks8Ff63zs69FLkp0Jl7P7XJy16gkrGkYLKfSXV7x/o5CGt9xRD20j0aZQFByghKIt1rAy5EOAS2DveYyld5Kctm2dEA0gAA=
