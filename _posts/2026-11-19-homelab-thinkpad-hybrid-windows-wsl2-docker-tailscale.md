@@ -6,6 +6,9 @@ comments: true
 mermaid: true
 categories: [Homelab & Self-Hosting]
 tags: [homelab, thinkpad, wsl2, docker, jellyfin, tailscale, pihole]
+image:
+  path: /assets/img/posts/2026-thinkpad-homelab-cover.jpg
+  alt: "Arsitektur homelab hybrid di Lenovo ThinkPad E14 dengan Windows 11, WSL2, Docker, Jellyfin, dan Tailscale"
 ---
 
 Di [tulisan sebelumnya](/posts/dari-wsl-ke-homelab-docker-dan-era-ai/), saya sempat cerita singkat soal perjalanan dari sekadar ngoprek WSL di laptop kerja sampai akhirnya nyulap laptop bekas di rumah jadi *home lab* yang jalan 24/7. Nah, di catatan kali ini saya mau bedah lebih dalam arsitektur di balik layar `nadir-thinkpad` — mulai dari kenapa pilihannya jatuh ke **hybrid Windows 11 + WSL2**, kenapa **ThinkPad E14 Gen 1** terasa pas banget buat peran ini, pembagian RAM di `.wslconfig`, sampai trik merawat laptop supaya kuat nyala nonstop.
