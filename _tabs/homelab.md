@@ -4,42 +4,42 @@ icon: fas fa-server
 order: 2
 ---
 
-Halaman ini merangkum *setup* **home lab** rumahan yang saya jalankan sehari-hari — sederhana, hemat daya, dan dibangun di atas **laptop bekas** yang disulap menjadi server Docker 24/7. Alih-alih memakai perangkat *enterprise* yang mahal dan berisik, fokus utama saya di sini adalah keandalan, kemudahan pemeliharaan (*maintainability*), dan otomasi.
+Di halaman ini saya catat *setup* **home lab** rumahan yang saya pakai sehari-hari — simpel, irit listrik, dan jalan di atas **laptop bekas** yang saya sulap jadi server Docker 24/7. Daripada beli perangkat *enterprise* yang mahal dan berisik, yang paling saya kejar di sini cuma tiga hal: stabil, gampang dirawat, dan serba otomatis.
 
 ---
 
-## 🧱 Stack Layanan Aktif
+## 🧱 Stack Layanan yang Lagi Jalan
 
-Seluruh layanan dijalankan dalam kontainer **Docker** menggunakan `docker-compose.yml` per *stack* agar tetap terisolasi dan mudah dipindahkan atau di-*backup*.
+Semua layanannya jalan di dalam *container* **Docker** pakai `docker-compose.yml` per *stack*, biar rapi, nggak saling ganggu, dan gampang kalau sewaktu-waktu mau dipindah atau di-*backup*.
 
-### 1. Manajemen Kontainer
-* **[Dockge](https://github.com/louislam/dockge)** — manajer *stack* Docker Compose berbasis web yang ringan dan fokus pada file `compose.yaml`. Saya memilih Dockge karena ia tidak menyembunyikan konfigurasi di balik UI yang rumit; setiap perubahan di UI langsung tersimpan sebagai file Compose standar yang mudah dibaca, di-edit lewat terminal, atau di-backup.
+### 1. Manajemen Container
+* **[Dockge](https://github.com/louislam/dockge)** — manajer *stack* Docker Compose berbasis web yang enteng banget dan fokus langsung ke file `compose.yaml`. Saya suka Dockge karena nggak nyembunyiin konfigurasi di balik UI yang ribet; apa pun yang diubah di UI langsung kesimpan jadi file Compose standar yang gampang dibaca, diedit lewat terminal, atau di-*backup*.
 
 ### 2. Jaringan & DNS
-* **[Pi-hole](https://pi-hole.net/)** — DNS *sinkhole* dan pemblokir iklan serta *tracker* untuk seluruh perangkat di jaringan rumah. Dengan memindahkan resolusi DNS ke Pi-hole di level jaringan, laptop, ponsel, hingga Smart TV di rumah otomatis terlindungi tanpa perlu memasang ekstensi di setiap perangkat.
+* **[Pi-hole](https://pi-hole.net/)** — DNS *sinkhole* buat ngeblokir iklan dan *tracker* di satu jaringan rumah sekaligus. Begitu DNS rumah diarahkan ke Pi-hole, semua perangkat — dari laptop, HP, sampai Smart TV — langsung ke-cover tanpa perlu repot pasang ekstensi satu-satu.
 
 ### 3. Otomasi Media (*\*arr Stack*)
-Untuk pengelolaan dan otomasi koleksi media rumah, saya menjalankan ekosistem *\*arr* yang saling terhubung:
-* **Prowlarr** — pusat manajemen *indexer* yang menyinkronkan konfigurasi secara otomatis ke aplikasi *\*arr* lainnya.
-* **Sonarr** — pelacakan dan otomasi serial TV.
-* **Radarr** — pelacakan dan otomasi film.
-* **Bazarr** — pengunduhan *subtitle* otomatis yang terintegrasi dengan Sonarr dan Radarr.
-* **Jellyseerr** — antarmuka permintaan (*request*) media yang rapi dan ramah untuk anggota keluarga di rumah.
-* **qBittorrent** — *download client* utama yang terhubung dengan alur kerja *\*arr* stack.
+Biar urusan koleksi tontonan keluarga di rumah jalan otomatis, saya pasang ekosistem *\*arr* yang saling nyambung:
+* **Prowlarr** — pusat *indexer* yang otomatis nyinkronin setting ke aplikasi *\*arr* lainnya.
+* **Sonarr** — buat ngatur dan nyari serial TV secara otomatis.
+* **Radarr** — sama kayak Sonarr, tapi khusus buat film.
+* **Bazarr** — urusan download *subtitle* otomatis yang nyambung langsung ke Sonarr dan Radarr.
+* **Jellyseerr** — halaman web yang rapi buat *request* film atau serial, jadi anggota keluarga di rumah tinggal klik aja.
+* **qBittorrent** — *download client* utama yang terhubung ke alur kerja *\*arr* stack.
 
 ---
 
 ## 📐 Catatan Arsitektur & Pelajaran Penting
 
-Salah satu pelajaran terbesar saat merancang *media stack* di Docker adalah soal **struktur direktori dan *hardlink***.
+Salah satu pelajaran paling berharga pas ngoprek *media stack* di Docker itu soal **struktur folder dan *hardlink***.
 
-Awalnya, memisahkan volume `/downloads` dan `/tv` atau `/movies` sebagai *bind mount* terpisah ke dalam kontainer membuat proses pemindahan file berjalan lambat karena sistem menganggapnya sebagai dua *filesystem* berbeda (sehingga harus *copy & delete*, memakan I/O disk dan menggandakan pemakaian ruang sementara).
+Awalnya, saya misahin volume `/downloads` dan `/tv` atau `/movies` sebagai *bind mount* terpisah ke dalam *container*. Akibatnya, proses pindahin file jadi lemot banget karena sistem nganggep itu dua *filesystem* yang beda — jadinya harus *copy & delete*, bikin disk kerja keras dan makan *storage* dobel buat sementara.
 
-Solusinya adalah menerapkan **unified volume mount** di level *root* data (mengikuti prinsip dari TRaSH Guides), misalnya memetakan satu folder induk `/data` yang di dalamnya berisi subdirektori `torrents/` dan `media/`. Dengan satu titik *mount* yang sama di Sonarr, Radarr, dan qBittorrent:
-* **Hardlink** bekerja secara instan tanpa memakan kapasitas penyimpanan ganda.
-* Proses *atomic move* berjalan seketika saat file selesai diunduh, sehingga tidak membebani SSD/HDD laptop bekas.
-* Izin akses (*PUID/PGID*) menjadi jauh lebih konsisten di seluruh kontainer.
+Solusinya ternyata simpel: pakai **unified volume mount** di level *root* data (ngikutin saran dari TRaSH Guides), misalnya mapping satu folder induk `/data` yang isinya ada subfolder `torrents/` dan `media/`. Dengan satu titik *mount* yang sama di Sonarr, Radarr, dan qBittorrent:
+* **Hardlink** langsung jalan instan tanpa makan ruang penyimpanan dua kali.
+* Proses *atomic move* beres seketika pas file selesai di-download, jadi SSD/HDD laptop bekas nggak tersiksa.
+* Urusan *permission* (`PUID/PGID`) juga jadi jauh lebih konsisten di semua *container*.
 
 ---
 
-> Catatan ini akan terus diperbarui seiring bertambahnya layanan baru atau eksperimen infrastruktur berikutnya di rumah.
+> Catatan ini bakal terus saya update kalau nanti ada layanan baru atau eksperimen ngoprek berikutnya di rumah.
