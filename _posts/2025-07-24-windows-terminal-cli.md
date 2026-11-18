@@ -167,3 +167,9 @@ Jadi, jika kamu masih menggunakan PowerShell klasik atau CMD biasa, saatnya menc
 
 > Ingin mencoba sesuatu yang lebih keren? Coba gabungkan Windows Terminal dengan \[Oh My Posh] untuk prompt terminal yang elegan.
 {: .prompt-tip }
+
+> **Seri Panduan Windows & WSL:**
+> 1. **Bagian 1: Mengenal Windows Terminal** *(kamu di sini)*
+> 2. [Bagian 2: Mengenal WSL di Windows](/posts/wsl-di-windows/)
+> 3. [Bagian 3: Setelah Install WSL, Apa Selanjutnya?](/posts/setelah-install-wsl-apa-selanjutnya/)
+{: .prompt-info }

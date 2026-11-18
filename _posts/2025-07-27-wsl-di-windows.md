@@ -160,3 +160,9 @@ Jadi, kalau kamu masih ragu mencoba Linux karena takut ribet, sekarang tidak ada
 
 > Nantikan artikel selanjutnya: mempercantik prompt WSL kamu dengan Oh My Posh!
 {: .prompt-tip }
+
+> **Seri Panduan Windows & WSL:**
+> 1. [Bagian 1: Mengenal Windows Terminal](/posts/windows-terminal-cli/)
+> 2. **Bagian 2: Mengenal WSL di Windows** *(kamu di sini)*
+> 3. [Bagian 3: Setelah Install WSL, Apa Selanjutnya?](/posts/setelah-install-wsl-apa-selanjutnya/)
+{: .prompt-info }

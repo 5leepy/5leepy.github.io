@@ -5,6 +5,9 @@ date: 2026-11-18 17:00:00 +0700
 comments: true
 categories: [AI & Workflow]
 tags: [homelab, docker, antigravity, workflow, logbook]
+image:
+  path: /assets/img/posts/2026-homelab-ai-cover.jpg
+  alt: "Dari terminal WSL ke home lab Docker dan workflow bersama AI agent"
 ---
 
 Kalau kamu sempat mampir ke arsip blog ini, tulisan terakhir saya tayang pertengahan 2025 — waktu itu masih rajin bahas soal **Windows Terminal** dan **WSL**. Setelah itu blog ini sempat vakum cukup lama. Bukan karena bosen ngoprek sih, tapi memang aktivitas di belakang layar lagi banyak berubah.

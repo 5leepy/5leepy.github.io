@@ -293,3 +293,9 @@ Selain Zsh, ada juga shell lain seperti **Fish** (Friendly Interactive SHell) ya
 Sekarang kamu sudah siap menggunakan WSL dengan lebih percaya diri: tahu cara update sistem, navigasi folder, akses file Windows, dan mengatasi masalah umum.
 
 Ini baru permulaan. Terminal yang fungsional itu bagus—tapi terminal yang canggih dan indah? Jauh lebih seru. Sampai ketemu di panduan berikutnya!
+
+> **Seri Panduan Windows & WSL:**
+> 1. [Bagian 1: Mengenal Windows Terminal](/posts/windows-terminal-cli/)
+> 2. [Bagian 2: Mengenal WSL di Windows](/posts/wsl-di-windows/)
+> 3. **Bagian 3: Setelah Install WSL, Apa Selanjutnya?** *(kamu di sini)*
+{: .prompt-info }
