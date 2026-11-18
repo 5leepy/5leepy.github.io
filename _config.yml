@@ -6,7 +6,7 @@ theme: jekyll-theme-chirpy
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en-ID
+lang: id-ID
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Jakarta
@@ -113,14 +113,14 @@ toc: true
 comments:
   provider: giscus
   giscus:
-    repo: 5leepy/nadir.github.io
+    repo: 5leepy/5leepy.github.io
     repo_id: R_kgDOPTssUw
     category: General
     category_id: DIC_kwDOPTssU84CteLQ
     mapping: pathname
     strict: false
     input_position: bottom
-    lang: en
+    lang: id
     reactions_enabled: true
     emit_metadata: true
     theme: preferred_color_scheme
