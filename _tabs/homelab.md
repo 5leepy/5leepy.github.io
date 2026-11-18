@@ -10,6 +10,20 @@ Arsitekturnya bersifat **hybrid Windows + WSL2 (Debian 12)** di mesin yang sama:
 
 ---
 
+## 💻 Spesifikasi Hardware
+
+| Komponen | Spesifikasi |
+| :--- | :--- |
+| **Perangkat** | **Lenovo ThinkPad E14 (Gen 1)** |
+| **CPU** | **Intel Core i5-10210U** (4 Cores / 8 Threads, TDP 15W hemat daya) |
+| **RAM** | **16 GB DDR4** |
+| **Storage 1 (OS & Docker)** | **512 GB NVMe SSD** (`C:\` — Windows 11 Pro, WSL2, Docker, & repo kerja) |
+| **Storage 2 (Media)** | **1 TB 2.5" SATA HDD** (`D:\Media` — pustaka Jellyfin & *\*arr stack*) |
+| **Jaringan** | **1 Gbps Ethernet LAN** (koneksi utama server) + Wi-Fi 6 |
+| **Daya** | Baterai internal berfungsi sebagai **UPS alami** saat listrik padam |
+
+---
+
 ## 🧱 Stack Layanan yang Lagi Jalan
 
 Untuk layanan berbasis *container*, semuanya jalan di **Docker** di dalam WSL2 pakai `docker-compose.yml` per *stack*, biar rapi, nggak saling ganggu, dan gampang kalau sewaktu-waktu mau dipindah atau di-*backup*.
