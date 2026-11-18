@@ -1,6 +1,7 @@
 ---
 title: "Bedah Arsitektur Homelab di ThinkPad Bekas: Hybrid Windows 11, WSL2, Docker, dan Tailscale"
 description: "Cara menyulap Lenovo ThinkPad E14 Gen 1 menjadi homelab 24/7 dengan arsitektur hybrid Windows 11, WSL2 Debian 12, Docker, Jellyfin, Pi-hole, dan Tailscale."
+date: 2026-11-19 03:37:00 +0700
 comments: true
 mermaid: true
 categories: [Homelab & Self-Hosting]
