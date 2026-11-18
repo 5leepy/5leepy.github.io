@@ -8,13 +8,13 @@ tags: [windows, terminal, cli, powershell, wsl, productivity]
 media_subpath: /assets/img/posts/windows-guide/win-terminal/
 image:
   path: terminal-thumbnail.webp
-  lqip: data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAwBgCdASoyABsAP6HC2V86Mq0lLBqsy0A0CWwAvvxOVhw/o+TLbKZB7IW04KGPnGq5S6YqTNgs8Oj+AP68ckjgsjgnwSCsOgfPASiqixN8/Xt86VGtWI6ax    +bFjdG0tbRYeplPLq7p3FPHAZT1dG0ROcweM20PMP1wLZSs0JXwYAyJ1Otnr46vdK5RtI7gPS86/Vc1q0Z6ZagqYGoaHPwuJM3bnB4fgAA=
+  lqip: data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAwBgCdASoyABsAP6HC2V86Mq0lLBqsy0A0CWwAvvxOVhw/o+TLbKZB7IW04KGPnGq5S6YqTNgs8Oj+AP68ckjgsjgnwSCsOgfPASiqixN8/Xt86VGtWI6ax+bFjdG0tbRYeplPLq7p3FPHAZT1dG0ROcweM20PMP1wLZSs0JXwYAyJ1Otnr46vdK5RtI7gPS86/Vc1q0Z6ZagqYGoaHPwuJM3bnB4fgAA=
   alt: "Mulai kenal Windows Terminal: satu aplikasi untuk PowerShell, CMD, WSL, dan lebih banyak lagi."
 ---
 
 Windows Terminal adalah aplikasi terminal modern yang dirancang untuk menggantikan PowerShell klasik dan Command Prompt. Microsoft pertama kali memperkenalkannya pada tahun 2019 sebagai bagian dari upaya memperbarui pengalaman baris perintah di Windows.
 
-Terminal ini bukan sekadar pembungkus visual, melainkan sebuah emulator terminal yang powerful. Ia memungkinkan kita menjalankan berbagai shell seperti PowerShell, Command Prompt, WSL (Windows Subsystem for Linux), Git Bash, hingga SSH, semuanya dari satu jendela terpusat yang modern dan dapat dikustomisasi.
+Terminal ini bukan sekadar pembungkus visual, melainkan sebuah emulator terminal yang powerful. Kamu bisa menjalankan berbagai shell seperti PowerShell, Command Prompt, WSL (Windows Subsystem for Linux), Git Bash, hingga SSH — semuanya dari satu jendela terpusat yang modern dan mudah dikustomisasi.
 
 ![Tampilan Windows Terminal dengan beberapa tab aktif](windows-terminal-tabs.png)
 *Windows Terminal memungkinkan banyak shell dibuka dalam satu jendela tab*
@@ -23,14 +23,14 @@ Terminal ini bukan sekadar pembungkus visual, melainkan sebuah emulator terminal
 
 Sebelum membahas Windows Terminal, mari kita mundur sedikit dan bertanya: “Mengapa kita menggunakan terminal?”
 
-Terminal memungkinkan kita:
+Terminal memungkinkan kita untuk:
 
 * Mengotomatisasi pekerjaan dengan script
-* Mengeksekusi perintah dengan cepat tanpa klik berulang
+* Mengeksekusi perintah dengan cepat tanpa perlu klik berulang kali
 * Mengakses dan mengontrol sistem lebih dalam
-* Menjalankan tool berbasis teks, seperti git, curl, atau ffmpeg
+* Menjalankan tool berbasis teks, seperti `git`, `curl`, atau `ffmpeg`
 
-PowerShell sendiri adalah shell dan bahasa pemrograman powerful buatan Microsoft. Dengan PowerShell, kita bisa:
+PowerShell sendiri adalah shell sekaligus bahasa scripting powerful buatan Microsoft. Dengan PowerShell, kita bisa:
 
 ```powershell
 Get-Process          # Melihat proses yang berjalan
@@ -48,7 +48,7 @@ Berikut beberapa kelebihan Windows Terminal dibanding CMD dan PowerShell klasik:
 
 ### 1. **Multiple Tabs**
 
-Tidak perlu lagi membuka banyak jendela CMD. Terminal mendukung banyak tab seperti browser. Kita bisa membuka satu tab PowerShell, satu tab Ubuntu (WSL), dan satu lagi Command Prompt — semua dalam satu jendela.
+Tidak perlu lagi membuka banyak jendela CMD. Windows Terminal mendukung banyak tab seperti browser. Kita bisa membuka satu tab PowerShell, satu tab Ubuntu (WSL), dan satu lagi Command Prompt — semua dalam satu jendela.
 
 > Gunakan `Ctrl+Shift+T` untuk membuka tab baru
 {: .prompt-tip }
@@ -59,7 +59,7 @@ Tidak perlu lagi membuka banyak jendela CMD. Terminal mendukung banyak tab seper
 *Split panes sangat berguna saat bekerja multitasking antar shell.*
 
 
-Kita bisa membagi layar terminal menjadi beberapa panel secara horizontal atau vertikal, menjalankan perintah yang berbeda di tiap panel.
+Kita bisa membagi layar terminal menjadi beberapa panel secara horizontal atau vertikal, lalu menjalankan perintah yang berbeda di tiap panel.
 
 > Shortcut default untuk split horizontal: `Alt+Shift+-`, vertical: `Alt+Shift++`
 {: .prompt-tip }
@@ -104,22 +104,22 @@ Terminal ini mampu menampilkan karakter internasional dan simbol Unicode dengan 
 
 ### 6. **Quake Mode dan Command Palette**
 
-* **Quake Mode**: tekan `Win + ^` (default) untuk membuka terminal dari atas layar — mirip seperti terminal di game Quake.
+* **Quake Mode**: tekan `` Win + ` `` (backtick, default di keyboard layout US; di beberapa layout lain tombolnya bisa berbeda) untuk membuka terminal dari atas layar — mirip seperti terminal di game Quake.
 
 ![Quake Mode aktif di Windows Terminal](windows-terminal-quake.png)
-*Tekan `Win + ^` untuk membuka terminal dengan gaya drop-down dari atas layar.*
+*Tekan `` Win + ` `` (keyboard US) untuk membuka terminal dengan gaya drop-down dari atas layar.*
 
 * **Command Palette**: tekan `Ctrl+Shift+P` untuk mencari dan mengeksekusi command seperti di VSCode.
 
 ![Command Palette di Windows Terminal](windows-terminal-command.png)  
 *Command Palette memudahkan akses cepat ke berbagai perintah tanpa harus mengetik secara manual.*
 
-> Fokus mode juga tersedia untuk tampilan fullscreen minimalis
+> Focus mode juga tersedia untuk tampilan fullscreen yang lebih minimalis
 {: .prompt-info }
 
 ### 7. **Pengalaman Lebih Cepat dan Konsisten**
 
-Windows Terminal menggunakan GPU rendering dengan DirectWrite/DirectX untuk hasil teks yang tajam dan halus.
+Windows Terminal menggunakan GPU rendering dengan DirectWrite/DirectX untuk menghasilkan tampilan teks yang tajam dan halus.
 
 > Jalankan sebagai administrator hanya saat diperlukan. Menjalankan script dengan hak admin tanpa verifikasi bisa berbahaya.
 {: .prompt-danger }
@@ -153,19 +153,19 @@ Invoke-WebRequest -Uri https://aka.ms/terminal -OutFile Terminal.msixbundle
 Add-AppxPackage .\Terminal.msixbundle
 ```
 
-> Pastikan Anda sudah mengaktifkan sideloading apps di Settings → For Developers
+> Pastikan kamu sudah mengaktifkan Developer Mode / sideloading apps di **Settings → For Developers**.
 {: .prompt-info }
 
 ## Penutup
 
-Windows Terminal membawa udara segar ke dunia terminal di Windows. Fitur seperti multiple tab, split pane, profiles, dan kustomisasi membuatnya lebih dari sekadar pembungkus PowerShell. Ia adalah pusat kendali baru untuk semua aktivitas command-line Anda.
+Windows Terminal membawa udara segar ke dunia terminal di Windows. Fitur seperti multiple tab, split pane, profiles, dan kustomisasi membuatnya jauh lebih dari sekadar pembungkus PowerShell — ia adalah pusat kendali baru untuk semua aktivitas command-line kamu.
 
-Jadi, jika kamu masih menggunakan PowerShell klasik atau CMD biasa, saatnya mencoba sesuatu yang lebih segar, fleksibel, dan menyenangkan.
+Jadi, kalau kamu masih menggunakan PowerShell klasik atau CMD biasa, sekarang saatnya mencoba sesuatu yang lebih segar, fleksibel, dan nyaman dipakai.
 
 ![Oh My Posh terintegrasi dengan Windows Terminal](power-shell-cstm.png)
 *Oh My Posh mempercantik prompt terminal dengan gaya powerline dan icon modern.*
 
-> Ingin mencoba sesuatu yang lebih keren? Coba gabungkan Windows Terminal dengan \[Oh My Posh] untuk prompt terminal yang elegan.
+> Ingin mencoba sesuatu yang lebih keren? Coba gabungkan Windows Terminal dengan [Oh My Posh](https://ohmyposh.dev/) untuk prompt terminal yang elegan.
 {: .prompt-tip }
 
 > **Seri Panduan Windows & WSL:**

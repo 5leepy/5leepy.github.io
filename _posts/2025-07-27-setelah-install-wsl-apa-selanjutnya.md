@@ -30,9 +30,9 @@ Pertama, buka Windows Terminal (atau bisa juga lewat CMD/PowerShell), lalu jalan
 wsl --version
 ```
 
-Jika muncul pesan error, kemungkinan kamu masih menggunakan WSL versi lama (legacy). Untuk memastikan kamu bisa menggunakan WSL 2, pastikan kamu sudah update Windows 10 minimal versi 2004 dan mengaktifkan fitur “Virtual Machine Platform”.
+Jika muncul pesan error, kemungkinan kamu masih menggunakan WSL versi lama (legacy). Agar bisa menggunakan WSL 2, pastikan kamu sudah update Windows 10 ke minimal versi 2004 dan mengaktifkan fitur “Virtual Machine Platform”.
 
-Jika distromu belum menggunakan WSL 2, kamu bisa ubah dengan perintah berikut:
+Jika distromu belum menggunakan WSL 2, kamu bisa mengubahnya dengan perintah berikut:
 
 ```bash
 wsl --set-version <distro> 2
@@ -44,7 +44,7 @@ Contoh:
 wsl --set-version Ubuntu 2
 ```
 
-> Mengapa perlu WSL 2? Versi ini menawarkan kinerja yang jauh lebih baik dan kompatibilitas penuh dengan kernel Linux, menjadikannya pilihan ideal untuk pengembangan. Pastikan distromu sudah di WSL 2 untuk pengalaman terbaik.
+> Kenapa perlu WSL 2? Versi ini menawarkan performa yang jauh lebih baik dan kompatibilitas penuh dengan kernel Linux, jadi lebih ideal untuk development. Pastikan distromu sudah pakai WSL 2 untuk pengalaman terbaik.
 {: .prompt-info }
 
 ### Update Ubuntu:
@@ -52,14 +52,15 @@ wsl --set-version Ubuntu 2
 ![Menjalankan update dan upgrade sistem di WSL](wsl-update-apt.png)
 *Perintah `sudo apt update && sudo apt upgrade` digunakan untuk memastikan sistem Linux kamu tetap up-to-date di WSL.*
 
-Setelah memastikan WSL berjalan dengan versi 2, waktunya memperbarui sistem Ubuntu-mu.
+Setelah memastikan WSL berjalan di versi 2, waktunya memperbarui sistem Ubuntu-mu.
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-> `-y` berarti kamu menyetujui semua prompt "yes" agar proses upgrade otomatis.
+> `-y` artinya kamu langsung menyetujui semua konfirmasi "yes" agar proses upgrade berjalan otomatis.
 {: .prompt-info }
+
 ---
 
 ## Struktur Folder & Navigasi Dasar
@@ -86,7 +87,7 @@ ls           # Melihat isi folder
 cd <folder>  # Masuk ke folder tertentu
 cd ..        # Kembali ke folder sebelumnya
 cd ~         # Pergi ke folder home
-clear        # bersihkan layar
+clear        # Bersihkan layar
 ```
 
 ### Membuat dan Menghapus Folder
@@ -101,6 +102,7 @@ rm -r nama_folder         # Menghapus folder beserta isinya
 
 > Gunakan `Tab` untuk melengkapi nama folder otomatis saat mengetik, dan `Ctrl + L` untuk membersihkan layar terminal.
 {: .prompt-tip }
+
 ---
 
 ## Akses File Windows dari Linux (WSL)
@@ -108,7 +110,7 @@ rm -r nama_folder         # Menghapus folder beserta isinya
 ![Akses folder Windows dari dalam WSL](wsl-access-windows-folder.png)
 *Di WSL, kamu bisa mengakses file Windows melalui `/mnt/c`, `/mnt/d`, dst.*
 
-Salah satu keunggulan WSL adalah kamu bisa mengakses file Windows langsung dari dalam Linux. File sistem Windows tersedia di direktori `/mnt`, dan tiap drive memiliki subfolder tersendiri:
+Salah satu keunggulan WSL adalah kamu bisa mengakses file Windows langsung dari dalam Linux. Sistem file Windows tersedia di direktori `/mnt`, dan tiap drive punya subfolder tersendiri:
 
 Contoh:
 
@@ -122,8 +124,8 @@ Ini akan membawamu ke folder **Downloads** di drive C: milik Windows.
 
 WSL juga memungkinkan kamu mengakses file Linux dari Windows Explorer, tapi **jangan pernah mengedit file Linux menggunakan aplikasi Windows** (misalnya Notepad atau VS Code dari Windows), apalagi memindahkan file Linux lewat File Explorer.
 
-**Mengapa?**
-> Karena mengedit file Linux dari Windows Explorer bisa merusak metadata file Linux dan menyebabkan korupsi filesystem. Selalu lakukan pengeditan dari dalam terminal WSL menggunakan editor seperti `nano`, `vim`, atau `code .` (jika menggunakan VS Code WSL extension).
+**Kenapa?**
+> Mengedit file Linux dari Windows Explorer bisa merusak metadata file Linux dan menyebabkan kerusakan filesystem. Selalu lakukan pengeditan dari dalam terminal WSL menggunakan editor seperti `nano`, `vim`, atau `code .` (jika menggunakan ekstensi WSL di VS Code).
 {: .prompt-warning }
 
 ### Jalankan Aplikasi Windows dari Linux
@@ -134,9 +136,9 @@ WSL juga memungkinkan kamu mengakses file Linux dari Windows Explorer, tapi **ja
 explorer.exe .
 ```
 
-* Ini akan membuka direktori saat ini dalam File Explorer, tapi tetap gunakan ini **hanya untuk melihat**, bukan mengedit file Linux.
+* Perintah ini akan membuka direktori saat ini di File Explorer, tapi tetap gunakan **hanya untuk melihat**, bukan mengedit file Linux.
 
-> Jika ingin berbagi file antara Windows dan Linux, simpan file tersebut di direktori `/mnt/c/Users/...`, yaitu di area Windows yang aman untuk diakses dari kedua sistem.
+> Jika ingin berbagi file antara Windows dan Linux, simpan file tersebut di direktori `/mnt/c/Users/...`—area Windows yang aman diakses dari kedua sistem.
 {: .prompt-info }
 
 * Edit teks:
@@ -160,21 +162,21 @@ code .
 
 > 🔧 **Tips Navigasi Cepat**
 >
-> * `Ctrl + L` → Clear layar
+> * `Ctrl + L` → Bersihkan layar
 > * `Ctrl + A` → Ke awal baris
 > * `Ctrl + E` → Ke akhir baris
 > * `Ctrl + U` → Hapus baris dari awal
 > * `Ctrl + R` → Cari perintah sebelumnya
 
-> Gunakan tombol panah atas dan bawah untuk navigasi riwayat perintah.
+> Gunakan tombol panah atas dan bawah untuk menelusuri riwayat perintah.
 {: .prompt-info }
+
 ---
 
 ## Gunakan Dokumentasi Internal Linux
 
 ![Menggunakan perintah man untuk melihat dokumentasi ls](wsl-man-ls.png)
 *Gunakan `man ls` untuk membuka dokumentasi lengkap perintah `ls`—seperti ensiklopedia mini langsung di terminalmu.*
-
 
 Linux dilengkapi dengan dokumentasi bawaan yang sangat berguna. Perintah `man` (manual) adalah alat utama untuk memahami cara kerja perintah di Linux.
 
@@ -192,12 +194,12 @@ man ls
 
 Ini akan membuka halaman manual untuk perintah `ls`.
 
-> Bayangkan `man` seperti **ensiklopedia mini di terminalmu**. Jika kamu bingung dengan opsi sebuah perintah, `man` akan menampilkan semua detailnya—dari penjelasan singkat hingga daftar lengkap parameter dan cara penggunaan.
+> Bayangkan `man` seperti **ensiklopedia mini di terminalmu**. Jika kamu bingung dengan opsi sebuah perintah, `man` akan menampilkan semua detailnya—dari penjelasan singkat hingga daftar lengkap parameter dan cara penggunaannya.
 {: .prompt-info }
 
 ### Perintah lain yang berguna:
 
-* `--help`: Hampir semua perintah memiliki opsi ini untuk melihat ringkasan cepat.
+* `--help`: Hampir semua perintah punya opsi ini untuk melihat ringkasan cepat.
 
 ```bash
 ls --help
@@ -215,7 +217,7 @@ whatis grep
 apropos network
 ```
 
-> Tip: Jika halaman `man` terlalu panjang, gunakan tombol panah atau `q` untuk keluar.
+> Tip: Jika halaman `man` terlalu panjang, gunakan tombol panah untuk scroll atau tekan `q` untuk keluar.
 {: .prompt-tip }
 
 ---
@@ -236,6 +238,7 @@ sudo rm -rf folderku
 
 > Hati-hati! Perintah ini bisa menghapus semua isi folder tanpa konfirmasi.
 {: .prompt-danger }
+
 ---
 
 ## Beberapa Masalah Umum
@@ -266,33 +269,34 @@ ls -l
 
 **Solusi:**
 
-* Pastikan jalur `/mnt/c/...` benar
-* Gunakan `ls /mnt` untuk melihat apakah drive ter-mount
+* Pastikan path `/mnt/c/...` sudah benar
+* Gunakan `ls /mnt` untuk melihat apakah drive sudah ter-mount
 
 ---
 
 ## Saatnya Upgrade Terminal-mu
 
-WSL biasanya menggunakan **Bash** sebagai shell default. Bash adalah fondasi yang kokoh dalam dunia Linux, dan sudah lebih dari cukup untuk kebutuhan dasar scripting, navigasi sistem, dan otomasi.
+WSL biasanya menggunakan **Bash** sebagai shell default. Bash adalah fondasi yang kokoh di dunia Linux, dan sudah lebih dari cukup untuk kebutuhan dasar scripting, navigasi sistem, hingga otomasi.
 
 Namun, banyak pengguna memilih **Zsh (Z Shell)** karena beberapa alasan menarik:
 
 * **Autokomplet Lebih Canggih:** Zsh bisa menampilkan saran lengkap dan kontekstual saat kamu mulai mengetik.
 * **Koreksi Otomatis:** Salah ketik `grpe`? Zsh bisa menyarankan "maksudmu grep?".
-* **Kustomisasi Visual:** Dengan framework seperti `oh-my-zsh`, kamu bisa menambahkan tema, plugin, dan tampilan terminal yang modern dan informatif.
+* **Kustomisasi Visual:** Dengan framework seperti `oh-my-zsh`, kamu bisa menambahkan tema, plugin, dan tampilan terminal yang modern serta informatif.
 * **Fitur Tambahan:** Seperti globbing yang lebih powerful dan navigasi history yang lebih fleksibel.
 
-Selain Zsh, ada juga shell lain seperti **Fish** (Friendly Interactive SHell) yang lebih ramah pemula dan modern.
+Selain Zsh, ada juga shell lain seperti **Fish** (Friendly Interactive SHell) yang ramah pemula dan modern.
 
-> Di artikel lanjutan, kita akan membahas cara mengganti shell dan memaksimalkannya dengan tema dan plugin.
+> Di artikel lanjutan, kita akan membahas cara mengganti shell dan memaksimalkannya dengan tema serta plugin.
 {: .prompt-info }
+
 ---
 
 ## Siap Lanjut ke Level Berikutnya
 
 Sekarang kamu sudah siap menggunakan WSL dengan lebih percaya diri: tahu cara update sistem, navigasi folder, akses file Windows, dan mengatasi masalah umum.
 
-Ini baru permulaan. Terminal yang fungsional itu bagus—tapi terminal yang canggih dan indah? Jauh lebih seru. Sampai ketemu di panduan berikutnya!
+Ini baru permulaan. Terminal yang fungsional itu bagus—tapi terminal yang canggih dan estetik? Jauh lebih seru. Sampai ketemu di panduan berikutnya!
 
 > **Seri Panduan Windows & WSL:**
 > 1. [Bagian 1: Mengenal Windows Terminal](/posts/windows-terminal-cli/)

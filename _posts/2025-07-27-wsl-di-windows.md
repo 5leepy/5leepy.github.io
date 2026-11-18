@@ -87,12 +87,7 @@ WSL mendukung banyak distro Linux. Berikut yang paling umum:
 * **Kali Linux** – kalau kamu tertarik dengan ethical hacking
 * **Arch Linux** – untuk yang suka tantangan
 
-> Kamu bisa install beberapa distro sekaligus dan jalankan dengan:
-
-```bash
-wsl -d <nama_distro>
-```
-
+> Kamu bisa install beberapa distro sekaligus dan menjalankannya dengan perintah `wsl -d <nama_distro>`.
 {: .prompt-tip }
 
 ---
@@ -111,14 +106,14 @@ Salah satu fitur keren WSL adalah integrasi file:
 
 ## Mengapa WSL Cocok untuk Developer?
 
-Bagi developer, WSL membuka dunia Linux tanpa harus meninggalkan Windows. Beberapa keuntungan:
+Bagi developer, WSL membuka dunia Linux tanpa harus meninggalkan Windows. Beberapa keuntungannya:
 
-* Jalankan tools seperti `git`, `npm`, `python`, `curl`, `ssh`
+* Bisa langsung menjalankan tools seperti `git`, `npm`, `python`, `curl`, `ssh`
 * Kompatibel dengan Docker Desktop (via WSL backend)
 * Akses environment Linux langsung dari **Windows Terminal** atau **VSCode**
-* Replika environment server Linux lokal
+* Bisa dipakai sebagai replika environment server Linux lokal
 
-> WSL sangat berguna untuk web development, backend API, scripting, bahkan DevOps.
+> WSL sangat berguna untuk web development, backend API, scripting, hingga DevOps.
 {: .prompt-info }
 
 ---
@@ -131,16 +126,16 @@ Dengan extension **Remote - WSL**, kamu bisa mengedit file Linux langsung di VSC
 code .
 ```
 
-> Jalankan perintah ini dari folder Linux, dan VSCode akan membukanya langsung.
+> Jalankan perintah ini dari folder Linux, dan VSCode akan langsung membukanya.
 {: .prompt-tip }
 
 ---
 
 ## Tips dan Trik
 
-* Gunakan **Windows Terminal** agar bisa membuka banyak tab shell sekaligus (Ubuntu, Zsh, Git Bash, dll.)
-* Aktifkan **Quake Mode** untuk akses cepat terminal dari atas layar (`Win + ^`)
-* Untuk konfigurasi lanjutan, edit file `.wslconfig`:
+* Gunakan **Windows Terminal** agar kamu bisa membuka banyak tab shell sekaligus (Ubuntu, Zsh, Git Bash, dll.)
+* Aktifkan **Quake Mode** untuk akses cepat terminal dari atas layar (`` Win + ` ``, default di keyboard layout US)
+* Untuk konfigurasi lanjutan, kamu bisa mengedit file `.wslconfig`:
 
 ```powershell
 wsl --shutdown
@@ -151,9 +146,9 @@ notepad "$env:USERPROFILE/.wslconfig"
 
 ## Penutup
 
-Dengan WSL, kamu tidak perlu memilih antara Windows dan Linux. Kamu bisa dapatkan yang terbaik dari keduanya — produktivitas dan fleksibilitas dalam satu sistem.
+Dengan WSL, kamu tidak perlu lagi memilih antara Windows dan Linux. Kamu bisa mendapatkan yang terbaik dari keduanya — produktivitas dan fleksibilitas dalam satu sistem.
 
-Jadi, kalau kamu masih ragu mencoba Linux karena takut ribet, sekarang tidak ada alasan lagi. Cukup satu perintah, dan kamu sudah siap menjelajah dunia Linux dari Windows.
+Jadi, kalau kamu masih ragu mencoba Linux karena takut ribet, sekarang tidak ada alasan lagi. Cukup satu perintah, dan kamu sudah siap menjelajahi dunia Linux dari Windows.
 
 ![Contoh penggunaan WSL di Windows Terminal](wsl-terminal.png)
 *Debian via WSL di Windows Terminal dengan tema modern*

@@ -20,7 +20,7 @@ Kebiasaan main di terminal Linux lewat WSL ternyata nular ke mana-mana. Perintah
 
 Dari situ kepikiran: daripada cuma muter-muterin *container* di laptop kerja, kenapa nggak sekalian manfaatin laptop bekas nganggur di rumah buat jadi server kecil yang nyala terus?
 
-Jadilah **home lab** rumahan saya. Nggak pakai server *rack* mahal — cukup satu laptop lama yang hemat listrik, install Docker, terus atur semua *stack*-nya pakai **Dockge** biar gampang dipantau lewat web. Sekarang di atasnya udah jalan **Pi-hole** buat ngeblokir iklan dan *tracker* satu rumah, plus paket lengkap **\*arr stack** (Sonarr, Radarr, Prowlarr, Bazarr, Jellyseerr) bareng **qBittorrent** buat otomasi tontonan keluarga.
+Jadilah **home lab** rumahan saya. Nggak pakai server *rack* mahal — cukup satu laptop lama yang hemat listrik dengan *setup* hybrid Windows + WSL2, terus atur semua *stack* Docker-nya pakai **Dockge** biar gampang dipantau lewat web. Sekarang di atasnya udah jalan **Pi-hole** buat ngeblokir iklan dan *tracker* satu rumah, **Tailscale** buat akses aman dari luar maupun antar perangkat, **Jellyfin** sebagai pemutar medianya, plus paket lengkap **\*arr stack** (Sonarr, Radarr, Prowlarr, Bazarr, Jellyseerr) bareng **qBittorrent** buat otomasi tontonan keluarga.
 
 Cerita detail arsitekturnya — termasuk pelajaran soal *unified volume mount* biar *hardlink* bisa jalan instan — sudah saya rangkum di halaman [Homelab](/homelab/).
 
