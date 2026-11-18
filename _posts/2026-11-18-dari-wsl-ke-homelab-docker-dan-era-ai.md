@@ -10,7 +10,7 @@ image:
   alt: "Dari terminal WSL ke home lab Docker dan workflow bersama AI agent"
 ---
 
-Kalau kamu sempat mampir ke arsip blog ini, tulisan terakhir saya tayang pertengahan 2025 — waktu itu masih rajin bahas soal **Windows Terminal** dan **WSL**. Setelah itu blog ini sempat vakum cukup lama. Bukan karena bosen ngoprek sih, tapi memang aktivitas di belakang layar lagi banyak berubah.
+Kalau kamu sempat mampir ke arsip blog ini, tulisan terakhir saya tayang pertengahan 2025 — waktu itu masih rajin bahas soal [**Windows Terminal**](/posts/windows-terminal-cli/) dan [**WSL**](/posts/wsl-di-windows/). Setelah itu blog ini sempat vakum cukup lama. Bukan karena bosen ngoprek sih, tapi memang aktivitas di belakang layar lagi banyak berubah.
 
 Anggap aja tulisan ini semacam *update* santai buat nyambungin cerita dari 2025 ke 2026.
 
