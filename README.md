@@ -1,43 +1,69 @@
-# Chirpy Starter
+# Nadir Nahdi — Dokumentasi, Proyek, dan Eksperimen
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+[![Build and Deploy](https://github.com/5leepy/5leepy.github.io/actions/workflows/pages-deploy.yml/badge.svg)](https://github.com/5leepy/5leepy.github.io/actions/workflows/pages-deploy.yml)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2F5leepy.github.io&label=5leepy.github.io)](https://5leepy.github.io)
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+Repositori kode sumber untuk blog teknologi pribadi milik Nadir Nahdi, dapat diakses secara langsung di **[https://5leepy.github.io](https://5leepy.github.io)**.
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+Blog ini berfungsi sebagai catatan publik dan *logbook* teknis berisi dokumentasi, panduan praktis, catatan proyek, serta hasil eksperimen seputar sistem dan pengembangan perangkat lunak.
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+## Topik Utama
 
-```shell
+- **Windows & WSL** — Konfigurasi Windows Terminal, alur kerja *command-line*, dan pengembangan di Windows Subsystem for Linux.
+- **Home Lab & Docker** — Eksplorasi *self-hosting*, kontainerisasi, dan pengelolaan layanan di lingkungan *home lab*.
+- **Linux** — Catatan penggunaan, konfigurasi, dan utilitas sistem Linux.
+- **Frontend & Eksperimen** — Eksperimen pengembangan web, antarmuka pengguna, serta proyek kecil lainnya.
+
+## Tech Stack
+
+- **Static Site Generator:** Jekyll 4.4
+- **Theme:** [Chirpy Theme](https://github.com/cotes2020/jekyll-theme-chirpy) 7.6
+- **Hosting & CI/CD:** GitHub Pages + GitHub Actions ([`pages-deploy.yml`](.github/workflows/pages-deploy.yml))
+- **Komentar:** [Giscus](https://giscus.app/) (berbasis GitHub Discussions)
+
+## Struktur Singkat
+
+```text
 .
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+├── .github/workflows/   # Workflow CI/CD untuk build dan deploy ke GitHub Pages
+├── _posts/              # Artikel dan catatan blog dalam format Markdown
+├── _tabs/               # Halaman navigasi utama (About, Archives, Categories, Tags)
+├── _config.yml          # Konfigurasi utama situs Jekyll dan tema Chirpy
+├── Gemfile              # Daftar dependensi Ruby/Jekyll
+└── tools/               # Skrip bantu untuk menjalankan dan menguji situs secara lokal
 ```
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+## Cara Menjalankan Lokal
 
-## Usage
+Pastikan **Ruby** dan **Bundler** sudah terpasang di sistem Anda, lalu jalankan perintah berikut:
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+1. **Clone repositori ini:**
 
-## Contributing
+   ```bash
+   git clone https://github.com/5leepy/5leepy.github.io.git
+   cd 5leepy.github.io
+   ```
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+2. **Install dependensi:**
 
-## License
+   ```bash
+   bundle install
+   ```
 
-This work is published under [MIT][mit] License.
+3. **Jalankan server pengembangan lokal:**
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+   ```bash
+   bundle exec jekyll s
+   ```
+
+   Atau gunakan skrip bantu yang sudah tersedia (mendukung *live reload*):
+
+   ```bash
+   ./tools/run.sh
+   ```
+
+   Setelah berjalan, buka `http://127.0.0.1:4000` di peramban Anda.
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah lisensi MIT. Lihat berkas [LICENSE](LICENSE) untuk informasi selengkapnya.
