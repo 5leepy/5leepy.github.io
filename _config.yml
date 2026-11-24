@@ -206,6 +206,7 @@ exclude:
   - "*.gem"
   - "*.gemspec"
   - docs
+  - ideas
   - tools
   - README.md
   - LICENSE
