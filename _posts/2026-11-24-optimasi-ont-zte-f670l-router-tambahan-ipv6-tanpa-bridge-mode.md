@@ -20,13 +20,13 @@ Masalahnya, kebanyakan orang (termasuk saya dulu) biasanya cuma langsung colok k
 3. **IPv6 Tidak Kebuka (atau Malah Bikin Lemot):** Padahal banyak ISP fiber sekarang sudah menyalurkan IPv6 Dual-Stack, tapi perangkat di balik router tambahan sering nggak kebagian alamat IPv6 publik yang valid — atau parahnya dapat alamat kosong berawalan `::xxxx` yang bikin browser *loading* lebih lama karena harus menunggu *timeout* sebelum mundur ke IPv4.
 4. **Wi-Fi Tabrakan & Beban Berlebih di ONT:** Wi-Fi bawaan ZTE yang dibiarkan tetap menyala di sebelah router baru bakal rebutan *channel* dan bikin interferensi. Ditambah lagi fitur **ALG (*Application Layer Gateway*)** dan firewall berlapis di ONT yang sering bikin panggilan *WhatsApp Call*, *Discord*, *Zoom*, sampai *CCTV IP Camera* jadi patah-patah.
 
-Kabar baiknya: **kamu bisa membereskan semua masalah di atas langsung dari menu ZTE ZXHN F670L (firmware V9) dan router tambahanmu — tanpa perlu repot minta Bridge Mode ke ISP.**
+Untungnya, empat hal di atas bisa diberesin langsung dari menu **ZTE ZXHN F670L (firmware V9)** dan router tambahanmu, tanpa perlu nunggu Bridge Mode dibuka oleh ISP. Ini catatan konfigurasi yang saya pakai sendiri di rumah.
 
 ---
 
 ## Hasil Nyata: Before vs. After
 
-Sebelum masuk ke langkah teknisnya, ini gambaran perbedaan yang terasa setelah optimasi diterapkan pada jaringan rumah dengan ONT ZTE F670L dan router Wi-Fi 6 tambahan:
+Sebelum masuk ke langkah teknisnya, ini perbandingan yang saya ukur sendiri di jaringan rumah dengan ONT ZTE F670L dan router Wi-Fi 6 tambahan:
 
 | Parameter | Sebelum Optimasi (Default) | Sesudah Optimasi |
 | :--- | :--- | :--- |
@@ -199,10 +199,10 @@ Supaya kenaikan *throughput* Wi-Fi makin maksimal setelah bottleneck NAT hilang,
 
 ## Drama & Troubleshooting yang Sering Kejadian
 
-Bagian ini penting banget untuk dibaca sebelum atau saat kamu ngoprek, karena beberapa jebakan di bawah ini benar-benar sering kejadian di firmware ZTE V9:
+Bagian ini penting dibaca dulu sebelum mulai ngoprek. Beberapa jebakan di bawah ini sempat saya temui sendiri (atau paling sering kejadian) di firmware ZTE V9:
 
 > **PERINGATAN KERAS soal Halaman WAN ZTE V9:**
-> Di halaman **`Internet` → `WAN`** (profil `omci_ipv4_pppoe_1`), kolom password PPPoE pada firmware ZTE V9 sering tampil kosong/ter-masking (`encode="1"`). **Jangan pernah klik `Apply` di halaman WAN PPPoE** kalau kamu tidak memegang username & password PPPoE asli dari ISP — karena klik `Apply` bisa menimpa password PPPoE dengan teks kosong dan membuat internet langsung mati total! Kalau terlanjur kejadian, segera *restore* dari file *Backup Configuration*.
+> Di halaman **`Internet` → `WAN`** (profil `omci_ipv4_pppoe_1`), kolom password PPPoE pada firmware ZTE V9 sering tampil kosong/ter-masking (`encode="1"`). **Jangan pernah klik `Apply` di halaman WAN PPPoE** kalau kamu tidak memegang username & password PPPoE asli dari ISP — karena klik `Apply` bisa menimpa password PPPoE dengan teks kosong dan bikin internet langsung mati total. Kalau sampai kejadian, segera *restore* dari file *Backup Configuration*.
 {: .prompt-danger }
 
 Selain jebakan WAN di atas, ini rangkuman kendala lain yang paling sering ditemui:
@@ -245,7 +245,7 @@ Hop 1 langsung ke router utama, hop 2 ke ZTE F670L, dan hop 3 langsung masuk jar
   ```text
   ping -6 2001:4860:4860::8888
   ```
-  Jika muncul balasan stabil seperti `time=27ms` dengan `0% loss`, jalur IPv6 rumahmu sudah resmi terbuka penuh!
+  Jika muncul balasan stabil seperti `time=27ms` dengan `0% loss`, jalur IPv6 rumahmu sudah terbuka penuh.
 
 ![Hasil pengujian koneksi IPv6 di test-ipv6.com dengan skor 10/10](/assets/img/posts/zte-f670l/test-ipv6-10-of-10.png)
 _Hasil pengujian di test-ipv6.com setelah optimasi: skor 10/10 dengan koneksi Dual-Stack IPv4 dan IPv6 publik aktif penuh (IP publik disensor)._
@@ -255,8 +255,10 @@ Jalankan **[Speedtest.net](https://www.speedtest.net)** atau **[Fast.com](https:
 
 ---
 
-## Penutup
+## Catatan Trade-off & Penutup
 
-Memaksimalkan modem bawaan ISP seperti **ZTE ZXHN F670L** ternyata tidak selalu harus menunggu *Bridge Mode* dibuka oleh CS. Dengan kombinasi **1 baris Static Route**, **SLAAC murni untuk IPv6**, dan **mematikan Wi-Fi serta ALG bawaan ONT**, jaringan rumah bisa jauh lebih bersih, adem, dan kencang.
+Pendekatan tanpa Bridge Mode ini memang punya satu *trade-off* yang perlu disadari dari awal: kita tetap bergantung pada konfigurasi di ONT ISP. Kalau suatu saat ISP melakukan *remote reset* atau *push* konfigurasi ulang lewat TR-069 (ACS), atau teknisi me-reset modem ke setelan pabrik, **Static Route** di ZTE bakal hilang — dan internet di balik router tambahan otomatis putus sampai diisi ulang.
 
-Satu tips terakhir: simpan catatan kecil berisi **3 langkah inti** (matikan Wi-Fi ZTE, isi ulang 1 baris Static Route, dan atur LAN IPv6 SLAAC). Jadi kalau suatu hari ONT di-reset pabrik oleh teknisi ISP, kamu cuma butuh kurang dari 5 menit untuk mengembalikan semuanya seperti semula. Selamat mencoba!
+Karena itu, kebiasaan paling aman adalah simpan catatan kecil berisi **3 langkah inti** (matikan Wi-Fi ZTE, isi ulang 1 baris Static Route, dan atur LAN IPv6 SLAAC) plus file backup konfigurasinya. Kalau kejadian reset, nggak sampai 5 menit semuanya udah balik normal lagi.
+
+Buat kondisi ISP fiber rumahan yang Bridge Mode-nya masih terkunci, kombinasi **1 baris Static Route**, **SLAAC murni**, dan **matikan Wi-Fi serta ALG di ZTE F670L** ini menurut saya jalan tengah paling realistis yang langsung kerasa bedanya. Selamat ngoprek!

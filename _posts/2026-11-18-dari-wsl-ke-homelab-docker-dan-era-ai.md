@@ -20,7 +20,9 @@ Kebiasaan main di terminal Linux lewat WSL ternyata nular ke mana-mana. Perintah
 
 Dari situ kepikiran: daripada cuma muter-muterin *container* di laptop kerja, kenapa nggak sekalian manfaatin laptop bekas nganggur di rumah buat jadi server kecil yang nyala terus?
 
-Jadilah **home lab** rumahan saya. Nggak pakai server *rack* mahal — cukup satu laptop lama yang hemat listrik dengan *setup* hybrid Windows + WSL2, terus atur semua *stack* Docker-nya pakai **Dockge** biar gampang dipantau lewat web. Sekarang di atasnya udah jalan **Pi-hole** buat ngeblokir iklan dan *tracker* satu rumah, **Tailscale** buat akses aman dari luar maupun antar perangkat, **Jellyfin** sebagai pemutar medianya, plus paket lengkap **\*arr stack** (Sonarr, Radarr, Prowlarr, Bazarr, Jellyseerr) bareng **qBittorrent** buat otomasi tontonan keluarga.
+Jadilah **home lab** rumahan saya. Nggak pakai server *rack* mahal — cukup satu laptop lama yang hemat listrik dengan *setup* hybrid Windows + WSL2, lalu semua *stack* Docker-nya saya kelola lewat **Dockge** biar gampang dipantau dari browser.
+
+Sekarang di atasnya udah jalan beberapa layanan harian: **Pi-hole** buat ngeblokir iklan dan *tracker* satu rumah, **Tailscale** buat akses aman dari luar, serta **Jellyfin** sebagai pemutar medianya. Di belakangnya ada paket **\*arr stack** (Sonarr, Radarr, Prowlarr, Bazarr, Jellyseerr) bareng **qBittorrent** untuk otomasi tontonan keluarga.
 
 Cerita detail arsitekturnya — termasuk pelajaran soal *unified volume mount* biar *hardlink* bisa jalan instan — sudah saya rangkum di halaman [Homelab](/homelab/).
 
@@ -31,6 +33,8 @@ Tapi kalau ditanya apa yang paling berubah di 2026, jawabannya bukan hardware-ny
 Dulu, mau ngoding sesuatu atau sekadar ngerapihin blog aja rasanya berat di waktu. Harus duduk lama di depan editor, ngetik baris demi baris kode atau *config* secara manual. Di tengah kesibukan kerja dan ngurus tiga anak di rumah, sering banget ide ngoprek akhirnya cuma jadi wacana karena keburu kehabisan waktu.
 
 Sekarang polanya jauh beda berkat **AI-assisted building** bareng agent seperti **Antigravity**. Tugas saya nggak lagi ngetik semuanya dari nol sendirian, tapi lebih ke nentuin arah, desain, batasan teknis, dan ngecek hasil akhirnya.
+
+Tentu nggak selalu mulus juga — kadang agent bisa salah asumsi atau bikin solusi yang terlalu melebar kalau batasannya nggak dikunci dari awal. Jadi tetap harus saya baca ulang dan tes sendiri. Bedanya, waktu yang dulu habis buat *boilerplate* sekarang bisa dipakai buat fokus ke keputusan teknisnya.
 
 *Refresh* blog ini sendiri contoh nyatanya:
 * Semua gambar yang dulu masih numpang di CDN luar sekarang sudah dipindahin ke lokal di `assets/img/` biar blog lebih mandiri dan aman.

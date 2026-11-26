@@ -172,7 +172,9 @@ Punya *media server* dan tumpukan *container* di rumah rasanya kurang lengkap ka
 
 Di jaringan lokal, semua permintaan domain lewat dulu ke **Pi-hole** yang jalan sebagai DNS *sinkhole*. Begitu DNS rumah diarahkan ke IP laptop server, semua perangkat — mulai dari HP, laptop kerja, sampai Smart TV — otomatis terlindungi tanpa perlu repot pasang *ad-blocker* satu per satu.
 
-Saat ini saya memasang *blocklist* dengan lebih dari **431.000 domain** berisi daftar penyedia iklan, *tracker*, dan telemetri. Begitu ada aplikasi atau situs yang mencoba menghubungi domain di daftar tersebut, Pi-hole langsung memblokirnya di level DNS sebelum sempat dimuat. Efeknya terasa banget: *browsing* lebih bersih, aplikasi HP lebih minim iklan, dan jaringan rumah jadi sedikit lebih lega.
+Saat ini saya memasang *blocklist* dengan lebih dari **431.000 domain** berisi daftar penyedia iklan, *tracker*, dan telemetri. Begitu ada aplikasi atau situs yang mencoba menghubungi domain di daftar tersebut, Pi-hole langsung memblokirnya di level DNS sebelum sempat dimuat.
+
+Efeknya langsung kerasa: *browsing* lebih bersih dan aplikasi HP jauh lebih minim iklan. Catatannya cuma satu: dengan daftar blokir sebesar itu, sesekali ada *link* e-commerce, promo, atau aplikasi yang ikut kepentok *false positive*. Jadi biasanya di minggu-minggu awal perlu siap-siap buka dashboard Pi-hole buat *whitelist* manual beberapa domain yang memang dipakai keluarga.
 
 > Sebelum mengubah pengaturan DNS langsung di level router untuk semua orang di rumah, coba tes dulu di satu perangkat (misalnya HP atau laptop kamu sendiri). Pastikan semua layanan atau aplikasi yang sering dipakai keluarga tetap jalan normal tanpa ada domain penting yang ikut terblokir.
 {: .prompt-tip }
@@ -227,7 +229,7 @@ Untungnya di ThinkPad (dan kebanyakan laptop modern lain), kita bisa mengaktifka
 * Atur batas atas pengisian (*stop charging at*) di kisaran **60%–80%** (saya pribadi pakai batas **80%**).
 * Atur batas bawah (*start charging below*) misalnya di **75%** agar baterai tidak terus-terusan melakukan siklus cas mikro.
 
-Begitu kapasitas menyentuh angka batas tersebut, daya dari adaptor akan langsung menopang mesin tanpa terus mengisi baterai. Hasilnya, baterai tetap awet, adem, tidak gampang kembung meski dicolok 24/7, dan tetap punya cadangan tenaga yang cukup buat menahan pemadaman listrik singkat.
+Begitu kapasitas menyentuh angka batas tersebut, daya dari adaptor akan langsung menopang mesin tanpa terus mengisi baterai. Hasilnya, baterai lebih adem, risiko kembung jauh berkurang, dan tetap ada cadangan daya kalau listrik rumah mendadak padam sebentar.
 
 > Meski sudah pakai *Battery Charge Threshold*, tetap biasakan cek fisik area *palmrest* atau *trackpad* setiap beberapa bulan sekali. Kalau terasa mulai menggelembung, segera cabut dan ganti baterainya demi keamanan perangkat yang nyala tanpa pengawasan 24/7.
 {: .prompt-warning }
@@ -236,6 +238,6 @@ Begitu kapasitas menyentuh angka batas tersebut, daya dari adaptor akan langsung
 
 ## Penutup
 
-Membuat *home lab* nggak harus selalu dimulai dari beli *hardware* baru atau format total laptop ke Linux server. Dengan memadukan **Lenovo ThinkPad E14 Gen 1**, **Windows 11 + WSL2 Debian 12**, pembagian RAM yang rapi di `.wslconfig`, serta **Pi-hole + Tailscale**, satu laptop bekas sudah lebih dari cukup untuk jadi tulang punggung media, jaringan rumah, sekaligus *workstation* harian.
+Bikin *home lab* nggak selalu harus dimulai dari beli mini PC baru atau format total laptop ke Linux server. Pakai satu **ThinkPad E14 Gen 1** bekas dengan kombinasi **Windows 11 + WSL2 Debian 12**, limit RAM di `.wslconfig`, plus **Pi-hole + Tailscale**, buat kebutuhan rumah tangga sekaligus mesin kerja harian saya sejauh ini sudah cukup banget.
 
-Tentu saja *setup* hybrid seperti ini bukan berarti bebas drama — mulai dari port container yang tiba-tiba diblokir `winnat` Windows sampai terminal `cmd.exe` yang bikin proses *freeze* karena nggak sengaja terklik. Kisah-kisah *troubleshooting* nyata di balik pemakaian harian itu sudah saya rangkum lengkap di catatan berikutnya: [**Drama & Troubleshooting Homelab Hybrid Windows 11 + WSL2**](/posts/troubleshooting-homelab-hybrid-windows-wsl2-docker/)!
+Tentu saja *setup* hybrid kayak gini bukan berarti bebas drama. Mulai dari port container yang tiba-tiba diblokir `winnat` Windows sampai terminal `cmd.exe` yang bikin proses *freeze* cuma gara-gara nggak sengaja terklik. Catatan *troubleshooting* nyatanya sudah saya rangkum terpisah di artikel berikutnya: [**Drama & Troubleshooting Homelab Hybrid Windows 11 + WSL2**](/posts/troubleshooting-homelab-hybrid-windows-wsl2-docker/).

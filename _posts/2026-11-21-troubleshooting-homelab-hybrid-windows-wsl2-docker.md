@@ -183,9 +183,9 @@ Jangan pernah mencampur lokasi penyimpanan. Di `nadir-thinkpad`, saya menerapkan
 
 ---
 
-## Bagian 2: Kasus Klasik Lain dari Komunitas WSL2 & Homelab (Beserta Solusinya)
+## Bagian 2: Kasus Klasik Lain yang Wajib Diantisipasi (Catatan Jaga-Jaga)
 
-Selain empat drama di atas, ada empat masalah lain yang paling sering dikeluhkan di komunitas **GitHub `microsoft/WSL`**, **r/homelab**, dan **r/selfhosted**. Kalau kamu memelihara server berbasis WSL2 dalam jangka panjang, cepat atau lambat kamu hampir pasti bakal ketemu salah satunya.
+Selain empat drama yang langsung saya alami di atas, ada empat kasus lain yang sering banget muncul di diskusi **GitHub `microsoft/WSL`**, **r/homelab**, dan **r/selfhosted**. Sebagian memang belum sampai kejadian parah di `nadir-thinkpad` karena keburu saya antisipasi duluan, tapi saya catat di sini sekalian buat pegangan kalau suatu saat muncul.
 
 ### 5. Port `53` Pi-hole Rebutan sama `systemd-resolved`
 
@@ -220,9 +220,9 @@ Setelah itu, jalankan ulang `docker compose up -d` pada *stack* Pi-hole di Dockg
 ### 6. File Virtual Disk `ext4.vhdx` Membengkak & Nggak Mau Mengecil Sendiri
 
 #### Masalah
-Ini topik keluhan nomor satu sepanjang masa di repositori GitHub WSL. Suatu hari kamu sadar kapasitas SSD `C:\` di Windows tinggal sisa sedikit. Setelah dicek, file virtual disk WSL2 atau Docker (`ext4.vhdx`) ukurannya sudah membengkak sampai **80–120 GB**.
+Ini masalah klasik yang cepat atau lambat bakal kena kalau kamu rajin *build* atau tarik *image* Docker di WSL2. Tiba-tiba kapasitas SSD `C:\` di Windows tinggal mepet, dan pas dicek, file virtual disk WSL2/Docker (`ext4.vhdx`) ukurannya sudah membengkak sampai **80–120 GB**.
 
-Kamu pun rajin bersih-bersih di dalam terminal Linux: menghapus *image* Docker tak terpakai lewat `docker system prune -a --volumes`, membersihkan *cache* APT, dan menghapus folder `node_modules` lama. Di dalam Linux (`df -h`), pemakaian disk tercatat tinggal **18 GB**. Tapi begitu kamu lihat di Windows Explorer, ukuran file `ext4.vhdx` di drive `C:\` **tetap bertahan di 100 GB dan tidak berkurang satu megabyte pun!**
+Kamu pun bersih-bersih di dalam Linux: hapus *image* Docker lewat `docker system prune -a --volumes`, bersihkan *cache* APT, hapus `node_modules` lama. Di `df -h` pemakaian disk tercatat tinggal **18 GB**, tapi di Windows Explorer ukuran `ext4.vhdx` **tetap bertahan di 100 GB dan nggak berkurang sama sekali**.
 
 #### Penyebab
 Secara desain, format *virtual hard disk* dinamis (`.vhdx`) milik Hyper-V akan otomatis membesar setiap kali Linux menulis blok data baru, tetapi **tidak otomatis mengembalikan blok kosong ke Windows** saat file di dalam Linux dihapus.
@@ -249,7 +249,7 @@ Untuk menguras ruang kosong dan mengecilkan kembali ukuran fisik `ext4.vhdx`:
    ```
    *(Catatan: Jika kamu menggunakan Windows 11 Pro dengan modul Hyper-V PowerShell aktif, kamu juga bisa memakai satu baris perintah: `Optimize-VHD -Path "<lokasi-file>\ext4.vhdx" -Mode Full`).*
 
-Dalam beberapa menit, puluhan gigabyte ruang SSD `C:\` yang tadinya "tersandera" akan langsung kembali lega!
+Dalam beberapa menit, puluhan gigabyte ruang SSD `C:\` yang tadinya "tersandera" akan langsung kembali lega.
 
 ---
 
@@ -261,7 +261,7 @@ Di arsitektur WSL2 klasik (mode jaringan `NAT`), mesin virtual Linux berada di b
 Akibatnya, meskipun *container* Docker bisa dibuka lewat `http://localhost:5001` di laptop server itu sendiri, kadang ketika diakses dari HP atau Smart TV di jaringan Wi-Fi rumah menggunakan IP LAN laptop (`192.168.1.x:5001`), koneksinya tidak tembus atau tertahan jika jembatan *port relay* Docker Desktop sedang bermasalah. Dulu, komunitas harus membuat *script* PowerShell panjang berisi `netsh interface portproxy add v4tov4` yang harus dijalankan ulang setiap *booting*.
 
 #### Solusi Modern: `networkingMode=mirrored`
-Jika kamu menggunakan **Windows 11 23H2 atau yang lebih baru** dengan kernel WSL2 terbaru, Microsoft sudah menghadirkan solusi yang jauh lebih elegan bernama **Mirrored Mode Networking**.
+Jika kamu menggunakan **Windows 11 23H2 atau yang lebih baru** dengan kernel WSL2 terbaru, Microsoft sudah menghadirkan solusi yang jauh lebih bersih bernama **Mirrored Mode Networking**.
 
 Cukup tambahkan pengaturan ini di bawah seksi `[wsl2]` pada file `%UserProfile%\.wslconfig`:
 
@@ -341,8 +341,8 @@ Supaya gampang dicari lagi kalau sewaktu-waktu ada layanan homelab yang ngambek 
 
 ## Penutup
 
-Menjalankan homelab 24/7 di atas arsitektur **hybrid Windows 11 + WSL2** memang punya seni tersendiri. Di awal, beberapa drama di atas sempat bikin mengernyitkan dahi — apalagi pas melihat port yang kosong tapi ditolak Windows, atau proses yang membeku cuma gara-gara tersenggol kursor mouse.
+Memang ada harga yang harus dibayar kalau milih jalur *hybrid* Windows 11 + WSL2 dibanding Linux *bare-metal*. Di awal, hal-hal aneh kayak port kosong yang ditolak `winnat` atau server yang *freeze* cuma gara-gara layar konsol kepencet mouse sempat bikin garuk-garuk kepala.
 
-Tapi begitu kita paham cara kerja di balik layarnya — mulai dari kelakuan `winnat`, batasan jembatan `/mnt/d` vs `ext4`, pentingnya *unified volume mount* buat *hardlink*, sampai pemeliharaan `ext4.vhdx` — sistem *hybrid* di satu laptop ThinkPad bekas ini berubah jadi server rumahan yang luar biasa bandel, hemat listrik, dan nyaris nggak pernah rewel lagi.
+Tapi begitu polanya ketemu dan satu per satu diberesin — dari reservasi port, pisahin folder `ext4` vs `/mnt/d`, sampai *unified mount* buat *hardlink* — setelah itu hampir nggak ada gangguan berarti lagi. ThinkPad-nya bisa dibiarin jalan tenang di pojok meja.
 
-Kalau kamu juga lagi ngoprek *setup* serupa di rumah dan pernah ketemu "drama" unik lainnya di Windows + WSL2 + Docker, tulis aja di kolom komentar di bawah — siapa tahu bisa jadi tambahan catatan buat sesama pejuang homelab laptop bekas!
+Kalau kamu juga pakai *setup* Windows + WSL2 + Docker di rumah dan pernah ketemu masalah aneh lain yang belum masuk daftar di atas, boleh banget share di kolom komentar. Lumayan buat nambah catatan bareng.
